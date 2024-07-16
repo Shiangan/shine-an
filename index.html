@@ -1,218 +1,146 @@
-<!doctype html>
-<html>
- <!-- Top Navbar -->
-    <nav class="app-navbar navbar no-select">
-        <ul class="nav navbar-nav sidebar-toggle">
-            <li class="sidebar-toggle-btn">
-                <a href="javascript:void(0)" class="mbr-icon-bars"></a>
-            </li>
-            <li class="navbar-project-info">
-                <div class="navbar-page-info">
-                    <img class="navbar-favicon" src="" height="25" width="25" data-tooltipster="bottom" title="Change Favicon">
-                    <span class="app-page-name" data-tooltipster="bottom" title="Change Page Title"></span>
-                </div>
-                <div class="navbar-url">
-                    <span class="app-project-name" data-tooltipster="bottom" title="Change Site Name"></span>
-                    <span class="app-page-url-separator">></span>
-                    <span class="app-page-url" data-tooltipster="bottom" title="Change Page Name"></span>
-                </div>
-            </li>
-        </ul>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>祥安生命有限公司－雲端訃聞</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>雲端訃聞</h1>
+    </header>
 
-        <ul class="nav navbar-nav navbar-devices">
-            <li data-device="phone" data-tooltipster="bottom" title="Mobile View">
-                <a href="javascript:void(0)"><i class="mbr-icon-mobile-phone"></i></a>
-            </li>
-            <li data-device="desktop" class="active" data-tooltipster="bottom" title="Desktop View">
-                <a href="javascript:void(0)"><i class="mbr-icon-desktop"></i></a>
-            </li>
-        </ul>
+    <!-- 內容部分 -->
+    <main>
+        <!-- 宣傳影片 -->
+        <section id="promo-video">
+            <video autoplay muted loop controls>
+                <source src="宣傳.mp4" type="video/mp4">
+                您的瀏覽器不支持視頻播放。
+            </video>
+        </section>
 
-        <ul class="nav navbar-nav navbar-right">
-            <li class="app-publish" data-tooltipster="bottom" title="Publish to Web, Local Drive">
-                <a href="javascript:void(0)">
-                    <i class="mbr-icon-cloud-upload"></i>
-                    <span>Publish</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <!-- /Top Navbar -->
+        <!-- 選擇背景音樂 -->
+        <section id="music-selection">
+            <h2>選擇背景音樂</h2>
+            <select id="music-choice" required>
+                <option value="audio/music1.mp3">音樂1</option>
+                <option value="audio/music2.mp3">音樂2</option>
+                <option value="audio/music3.mp3">音樂3</option>
+                <option value="audio/music4.mp3">音樂4</option>
+                <option value="audio/music5.mp3">音樂5</option>
+            </select>
+        </section>
 
+        <label for="font-choice">选择字体:</label>
+        <select id="font-choice" onchange="changeFont(this.value)">
+            <option value="Arial, sans-serif">Arial</option>
+            <option value="Helvetica, sans-serif">Helvetica</option>
+            <option value="Verdana, sans-serif">Verdana</option>
+            <option value="Tahoma, sans-serif">Tahoma</option>
+            <option value="Times New Roman, serif">Times New Roman</option>
+            <option value="Georgia, serif">Georgia</option>
+            <option value="Palatino Linotype, Book Antiqua, Palatino, serif">Palatino</option>
+            <option value="Courier New, Courier, monospace">Courier New</option>
+            <option value="Lucida Console, Monaco, monospace">Lucida Console</option>
+        </select>
 
-    <!-- Sidebar -->
-    <div class="app-sidebar no-select">
-        <div class="top-sidebar-block">
-            <a href="javascript:void(0)" class="sidebar-close">
-                <span class="mbr-icon-times"></span>
-            </a>
-        </div>
-        <div class="hover-block pages-block" data-tooltipster="right" title="Manage Pages">
-            <span class="hover-block-arrow pages-show mbr-icon-angle-right"></span>
-            <h4>Pages</h4>
-            <span class="app-page-name hover-block-sub">Home</span>
-        </div>
-        <div class="hover-block projects-block" data-tooltipster="right" title="Manage Sites">
-            <span class="hover-block-arrow projects-show mbr-icon-angle-right"></span>
-            <h4>Sites</h4>
-            <div class="app-project-name hover-block-sub">My Site</div>
-        </div>
-        <div class="hover-block account-block" data-tooltipster="right" title="Manage App / Account Settings">
-            <span class="hover-block-arrow mbr-icon-angle-right"></span>
-            <h4>Account</h4>
-            <div class="app-user-email hover-block-sub">Please, Sign Up / Login</div>
-        </div>
-        <!-- addons-block see app-addons.js -->
-        <!-- helpme-block see app-help.js -->
+        <!-- 往生者資料表單 -->
+        <section id="deceased-info">
+            <h2>往生者資料</h2>
+            <form id="deceased-form">
+                <label for="name">姓名:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="photo">追思照片:</label>
+                <input type="file" id="photo" name="photo" accept="image/*" required>
+                
+                <label for="birth-date">出生日期:</label>
+                <input type="date" id="birth-date" name="birth-date" required>
+                
+                <label for="death-date">死亡日期:</label>
+                <input type="date" id="death-date" name="death-date" required>
+                
+                <label for="funeral-space">牌位安置地點:</label>
+                <textarea id="funeral-space" name="funeral-space"></textarea>
+                
+                <label for="funeral-date">出殯日期:</label>
+                <input type="date" id="funeral-date" name="funeral-date" required>
+                
+                <label for="funeral-location">出殯地點:</label>
+                <select id="funeral-location" name="funeral-location" required>
+                    <option value="第二殯儀館">第二殯儀館 禮廳</option>
+                    <option value="板橋殯儀館">板橋殯儀館 禮廳</option>
+                    <option value="其他">其他</option>
+                </select>
+                <input type="text" id="other-funeral-location" name="other-funeral-location" placeholder="若選擇其他，請填寫地點">
+                
+                <label for="family-service-time">家奠禮時間:</label>
+                <input type="time" id="family-service-time" name="family-service-time" required>
 
-    </div>
-    <!-- /Sidebar -->
+                <label for="public-service-time">公奠禮時間:</label>
+                <input type="time" id="public-service-time" name="public-service-time" required>
+                
+                <label for="life-story">生平介紹:</label>
+                <textarea id="life-story" name="life-story"></textarea>
+                
+                <!-- 提交按鈕 -->
+                <button type="submit">提交</button>
+            </form>
+        </section>
 
-    <!-- Page Settings -->
-    <section id="app-page-settings" class="app-layer no-select">
-        <h4 class="app-layer-title">Page Settings</h4>
+        <section id="obituary-section" style="display: none;">
+            <h2>訃聞詳情</h2>
+            <img id="deceased-photo" alt="追思照片">
+            <h3 id="deceased-name"></h3>
+            <p>出生日期: <span id="birth-date-text"></span></p>
+            <p>死亡日期: <span id="death-date-text"></span></p>
+            <p>牌位安置地點: <span id="funeral-space-text"></span></p>
+            <p>出殯日期: <span id="funeral-date-text"></span></p>
+            <p>出殯地點: <span id="funeral-location-text"></span></p>
+            <p>家奠禮時間: <span id="family-service-time-text"></span></p>
+            <p>公奠禮時間: <span id="public-service-time-text"></span></p>
+            <p>生平介紹: <span id="life-story-text"></span></p>
 
-        <div class="app-layer-cont">
-            <div class="form-group page-setting-title-wrap">
-                <label for="page_title">Page Title:</label>
-                <input id="page_title" data-page-settings="title" type="text" class="form-control">
-            </div>
+            <!-- 留言區 -->
+            <section id="messages-section">
+                <h2>留言區</h2>
+                <div id="messages"></div>
+                <form id="message-form">
+                    <label for="message-input">您的留言:</label>
+                    <textarea id="message-input" required></textarea>
+                    <button type="submit">提交留言</button>
+                </form>
+            </section>
 
-            <div class="form-group">
-                <label for="page_meta_description">Page Description:</label>
-                <textarea id="page_meta_description" class="form-control" data-page-settings="meta_descr" rows="2"></textarea>
-            </div>
+            <!-- 花籃訂購區 -->
+            <section id="flower-order-section">
+                <h2>訂購花籃</h2>
+                <form id="flower-order-form">
+                    <label for="sender-name">訂購人姓名:</label>
+                    <input type="text" id="sender-name" required>
+                    <label for="recipient-name">收件人姓名:</label>
+                    <input type="text" id="recipient-name" required>
+                    <label for="recipient-address">收件人地址:</label>
+                    <input type="text" id="recipient-address" required>
+                    <label for="invoice">是否需要發票:</label>
+                    <select id="invoice">
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
+                    <label for="flower-basket-message">花籃留言:</label>
+                    <textarea id="flower-basket-message" required></textarea>
+                    <button type="submit">訂購花籃</button>
+                </form>
+            </section>
+        </section>
+    </main>
 
-            <div class="form-group page-setting-url-wrap">
-                <label for="file_name">Page URL:</label>
-                <input id="file_name" data-page-settings="fileName" type="text" class="form-control">
-                <p class="text-muted page-settings-url-info" style="padding-top: 5px;">This is the default site page. Don't rename it unless you have another index.html file.</p>
-            </div>
+    <footer>
+        <p>&copy; 2024 祥安生命有限公司. 版权所有.</p>
+    </footer>
 
-            <div class="form-group">
-                <label>Google Preview:</label>
-                <a class="app-page-settings-chrome-preview-btn chrome-preview-desktop-btn btn">Desktop</a>
-                <a class="app-page-settings-chrome-preview-btn chrome-preview-mobile-btn btn">Mobile</a>
-                <div class="page-settings-chrome-preview">
-                    <div class="chrome-preview-row chrome-preview-link">
-                        <img class="chrome-preview-favicon" src="" height="16" width="16">
-                        <span class="chrome-preview-url"></span>
-                        <img class="chrome-preview-amp-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAABr0lEQVR4AbWWJYCUURhFD04Zi7hrLzgFd4nzV9x6wKHinmYb7g4zq71gIw2LWBnZ3Q8df/fh96Tn/t2HVIw4CVKk+fSFNCkSxInxW1pFkhLmoMRjVvFLmkEX5ocuZuBVPw5jv8hh+iEU5QEmuMK+prz7RN3dPMMEGQYzxpH/lGjzou5jgl7mAvOdZfcbF+jbm3MAbFZ7VX9SJnlL1D8UMyjLe+BrAYDb+jJUr59JrlNWRtcqX9GkrPCR4QBAf4qYJAkQoyQrbKKs8RiaEjEI0GvvQ1mLMC9xaBFFBaZS1TbMSwJSomg39erDF+TxpCCNOXjGQJTCvG6qn4ZPzkcxA61Tjhaf4KMj+6Q3XvW6Lopraa8IozRQxIi0a7NXorULc5JyHX/3F3q+0PsFYytVTaGgjz/AvCyiegE69IUsPxHNBMpa738i6tGWlzkAABjKe/+j9YeRHGVd9oWRnwe2ewDASp/L/UqoPQ5AmFeYZMavBP8dAJz0GWWDHQlzXApMdz4KYUfKICcxkKeOfGmQyrIPcgE9m+g/+kT812/Nr3+0kqzitxQjoKXh6xfor99nlEdFjyvH15gAAAAASUVORK5CYII=">
-                    </div>
-                    <div class="chrome-preview-row chrome-preview-title"></div>
-                    <div class="chrome-preview-row chrome-preview-description"></div>
-                </div>
-            </div>
-            <div class="form-group row clearfix">
-                <label class="col-md-10 control-label">Social Sharing Image:</label>
-                <div class="togglebutton col-md-2">
-                    <label style="width: 100%; text-align: right;">
-                        <input type="checkbox" id="metaShareImage"><span class="toggle" style="margin: 0; display: inline-flex;"></span>
-                    </label>
-                </div>
-                <div class="col-md-12">
-                    <div class="social-sharing-on-users" style="padding-top: 10px; display: block;">
-                        <div class="form-group social-sharing-on-users__img-url-wrap">
-                            <label for="social_sharing_on_users">Social Sharing Image URL:</label>
-                            <input id="social_sharing_on_users" data-page-settings="socialSharingUrl" placeholder="https://pixabay.com/illustrations/background-texture-abstract-art-6556393/" type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="social-sharing-on-mobirise" style="padding-top: 10px; display: none;">
-                        <img src="" class="social-sharing-on-mobirise__img" style="width: 100%; cursor: pointer; object-fit: contain; object-position: left center;" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <span class="app-layer-close mbr-icon-angle-left"></span>
-    </section>
-    <!-- /Page Settings -->
-
-    <!-- Pages List -->
-    <section id="app-pages-list" class="app-layer no-select">
-        <h4 class="app-layer-title">Pages</h4>
-        <div class="app-layer-cont">
-            <ul class="list row">
-                <!-- Here will be list with pages -->
-            </ul>
-        </div>
-        <span class="app-layer-close mbr-icon-angle-left"></span>
-    </section>
-    <!-- /Pages List -->
-
-    <!-- Account Settings -->
-    <section id="app-account-settings" class="app-layer no-select">
-        <h4 class="app-layer-title">Account</h4>
-            <div class="hover-block" id="accountResetPassword">
-                <label>Reset password</label>
-            </div>
-            <div class="hover-block" id="accountLogout">
-                <label>Logout</label>
-            </div>
-        <span class="app-layer-close mbr-icon-angle-left"></span>
-    </section>
-    <!-- /Account Settings -->
-
-
-    <!-- Template -->
-    <section class="app-template">
-        <iframe data-src="app/builder/index.html" frameborder="0"></iframe>
-    </section>
-    <!-- /Template -->
-
-    <!-- Add Button -->
-    <button class="app-components-toggle btn btn-fab btn-raised btn-material-red no-select" data-tooltipster="left" title="Add Block to Page"><i class="mbr-icon-plus"></i></button>
-    <!-- /Add Button -->
-
-    <!-- Add Block -->
-    <section id="add-component" class="app-layer no-select">
-        <h4 class="app-layer-title">Drag Block to Page</h4>
-        <div class="add-component-content">
-            <div class="add-component-blocks">
-                <div class="app-layer-cont">
-                    <!-- Here will be list of components -->
-                </div>
-            </div>
-            <div class="add-component-groups">
-                <ul>
-                    <!-- Here will be list of component groups -->
-                </ul>
-            </div>
-        </div>
-    </section>
-    <!-- /Add Block -->
-
-    <!-- Toggle for Theme Settings -->
-    <button class="app-theme-settings-toggle btn btn-fab btn-raised btn-material-blue no-select" data-tooltipster="left" title="Edit Site Styles"><i class="mbr-icon-paint-brush"></i></button>
-    <!-- /Toggle for Theme Settings -->
-
-    <!-- Theme Settings -->
-    <section id="theme-settings" class="app-layer no-select">
-        <div class="app-layer-cont">
-            <!-- Here will be list of settings -->
-        </div>
-    </section>
-    <!-- /Theme Settings -->
-
-
-    <!-- Component Params -->
-    <section id="edit-component-params" class="no-select">
-        <div class="cont"></div>
-    </section>
-    <!-- /Component Params -->
-
-    <!-- Insert dynamic scripts -->
-    <link id="insertBefore" />
-
-    <script src="assets/jquery/jquery.min.js"></script>
-    <script src="assets/seo/punycode.js"></script>
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
-
-    <script src="assets/jsencrypt/jsencrypt.min.js"></script>
-    <script src="assets/formoid-public-key/formoid-public-key.js"></script>
-
-    <script src="js/index.js?ts=lyfjcn43"></script>
-    <!-- -->
+    <audio id="background-music" loop></audio>
+    <script src="script.js"></script>
 </body>
-
 </html>
