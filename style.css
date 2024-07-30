@@ -1,70 +1,229 @@
+/* 基本樣式 */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+    font-family: 'Noto Sans', sans-serif;
+    background: #f7f7f7;
+    color: #333;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
 }
 
+/* 頁首和導航欄 */
 header {
-    background-color: #333;
+    background: #333;
     color: #fff;
-    padding: 1rem 0;
-    text-align: center;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-main {
-    padding: 2rem;
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
 }
 
-h1, h2 {
-    color: #333;
+.nav-links li {
+    display: inline;
 }
 
-form {
-    margin-bottom: 2rem;
-}
-
-label, input, select, textarea, button {
-    display: block;
-    width: 100%;
-    margin-bottom: 0.5rem;
-}
-
-input, select, textarea {
-    padding: 0.5rem;
-    font-size: 1rem;
-}
-
-button {
-    background-color: #333;
+.nav-links a {
     color: #fff;
-    border: none;
-    padding: 0.7rem;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: #575757;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.cart-icon {
+    font-size: 1.2em;
+    position: relative;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #555;
+#cart-count {
+    background: red;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 6px;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 0.75em;
 }
 
-#messages {
-    margin-top: 2rem;
+/* 主內容區域 */
+main {
+    padding: 20px;
 }
 
-.message {
-    background-color: #fff;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-left: 5px solid #333;
+.intro {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
+.intro h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.announcements {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.announcement {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.announcement:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.announcement-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.announcement-content {
+    padding: 15px;
+}
+
+.announcement-content h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.announcement-content p {
+    color: #666;
+    font-size: 1em;
+}
+
+/* 上傳表單 */
+.upload {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.upload h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#upload-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#upload-form input[type="text"],
+#upload-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+#upload-form input[type="file"] {
+    margin-bottom: 15px;
+}
+
+#upload-form button {
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s ease;
+}
+
+#upload-form button:hover {
+    background: #575757;
+}
+
+/* 頁尾 */
 footer {
-    background-color: #333;
+    background: #333;
     color: #fff;
     text-align: center;
-    padding: 1rem 0;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+footer h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 1em;
+    color: #ccc;
+}
+
+/* 音樂控制按鈕 */
+#toggle-music {
     position: fixed;
-    width: 100%;
-    bottom: 0;
+    bottom: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    outline: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+#toggle-music:hover {
+    color: #666;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .announcements {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .announcement {
+        width: 100%;
+        max-width: none;
+    }
 }
